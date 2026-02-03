@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine?</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+        color: white;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 40px;
+        border-radius: 25px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        max-width: 420px;
+        animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+        font-size: 2.4em;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-weight: 400;
+        margin-bottom: 30px;
+    }
+
+    button {
+        background: #fff;
+        color: #ff4e8a;
+        border: none;
+        padding: 15px 35px;
+        font-size: 1.1em;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .message {
+        display: none;
+        margin-top: 25px;
+        font-size: 1.2em;
+        animation: fadeIn 1s ease;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+
+    .heart {
+        position: absolute;
+        bottom: -50px;
+        font-size: 24px;
+        animation: floatUp 6s linear infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+        from { transform: translateY(0); }
+        to { transform: translateY(-110vh); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Sunayna Paladh ❤️</h1>
+    <h2>Will you be my Valentine?</h2>
+
+    <button onclick="showLove()">YES 💍</button>
+
+    <div class="message" id="loveMessage">
+        💖 You just made my heart the happiest 💖  
+        <br><br>
+        I can’t wait to spend forever with you 🌹
+    </div>
+</div>
+
+<script>
+function showLove() {
+    document.getElementById("loveMessage").style.display = "block";
+}
+
+for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
